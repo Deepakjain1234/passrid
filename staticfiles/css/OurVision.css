@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+body {
+  margin: 0;
+}
+
+.about_us_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 5% 10%;
+}
+
+.our_vision_main {
+  margin: 0 10%;
+  width: 80%;
+}
+
+.our_vision_intro {
+  margin: 0 10%;
+  width: 80%;
+  text-align: center;
+}
+
+.our_vision_intro p {
+  font-size: 20px;
+}
+
+.btn {
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 20px;
+}
+
+.btn h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transition: 400ms;
+  box-shadow: 2px 2px black;
+}
+
+.our_vision_main h2 {
+  font-size: 35px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+}
+
+.our_vision_main p {
+  font-size: 17px;
+  margin: 30px 0;
+}
+
+.our_vision_bold {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+}
+.about_us_header img {
+  height: 120px;
+  width: 110px;
+}
+@media (max-width: 400px) {
+  .about_us_header svg {
+    width: 20%;
+  }
+
+  .btn {
+    padding: 5px;
+    border: 3px solid black;
+    border-radius: 15px;
+  }
+}

@@ -1,0 +1,164 @@
+{% extends 'PassitPanel/layout.html' %}
+{% load static %}
+
+
+{% block title %} - User registration {% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/homePage.css' %}" />
+<link rel="stylesheet" href="{% static 'css/loginRegistration.css' %}" />
+
+{% endblock %}
+
+{% block body %}
+
+<hr />
+
+<section class="user_registration">
+  <div class="register_heading">
+    <h1>For User</h1>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+      tempora eos corrupti id et sitLorem, ipsum dolor sit amet consectetur
+      adipisicing elit. Voluptas tempora eos corrupti id et sit..
+
+      <!-- display error messages -->
+      {% if messages %}
+      {% for message in messages %}
+
+    <div class="alert alert-{{ message.tags }}" role="alert">
+      {{ message }}
+    </div>
+
+    {% endfor %}
+    {% endif %}
+    <!-- end error messages -->
+    </p>
+  </div>
+
+  <div class="register_choice">
+    <button class="logibtnn_" id="loginbtn">Login</button>
+    <button class="register_btn" id="registerbtn">Register</button>
+  </div>
+
+  <!-- registration form -->
+  <form method="post" name="myForm" onsubmit="return validateFormuser(this);" action="{% url 'userLoginRegister' %}">
+    {% csrf_token %}
+    <div class="register_design" id="registerid">
+      <div class="register_combo" id="name">
+        <div class="register_info">
+          <label for="first">First name</label>
+          <div class="inputbox">
+            <i class="fas fa-user"></i>
+            {{ regform.first_name }}
+          </div>
+          <span class="formerror"> </span></b>
+        </div>
+
+        <div class="register_info" id="lname">
+          <label for="first">Last name</label>
+          <div class="inputbox">
+            <i class="fas fa-user"></i>
+            {{ regform.last_name }}
+          </div>
+          <span class="formerror"> </span></b>
+        </div>
+
+      </div>
+
+      <div class="register_info email" id="email">
+        <label for="email">Email</label>
+        <div class="inputbox">
+          <i class="fas fa-envelope"></i>
+          {{ regform.email }}
+        </div>
+        <b><span class="formerror"> </span></b>
+      </div>
+      <div class="register_info mobile" id="phone">
+        <label for="Mobile">Mobile number</label>
+        <div class="inputbox">
+
+          <select name="country_code" id="">
+            <option value="india">+91</option>
+            <option value="USA">+1</option>
+          </select>
+
+          {{ regform.phone_number }}
+        </div>
+        <span class="formerror"></span></b>
+
+      </div>
+
+      <div class="register_combo">
+        <div class="register_info" id="pass">
+          <label for="set_pin">Set PIN</label>
+          <div class="inputbox">
+            <i class="fa fa-unlock"></i>
+            {{ regform.password1 }}
+          </div>
+          <b><span class="formerror"></span></b>
+        </div>
+        <div class="register_info" id="cpass">
+          <label for="set_pin">Confirm PIN</label>
+          <div class="inputbox">
+            <i class="fa fa-unlock"></i>
+            {{ regform.password2 }}
+          </div>
+          <b><span class="formerror"></span></b>
+        </div>
+
+      </div>
+
+      <input class="submit_btn" name='submit' type="submit" value="Register" />
+    </div>
+
+  </form>
+  <!-- end registration form -->
+
+  <!-- login form -->
+  <div class="register_design" id="loginid">
+    <form method="post" action="{% url 'userLoginRegister' %}" onsubmit="return loginformvalid(this)" name="logForm">
+      {% csrf_token %}
+      <div class="register_info email" id="email-login">
+        <label for="email">Email</label>
+        <div class="inputbox">
+          <i class="fas fa-envelope"></i>
+          {{ loginform.username }}
+        </div>
+        <b><span class="formerror"> </span></b>
+      </div>
+
+      <div class="register_combo">
+        <div class="register_info" id="logpass">
+          <label for="set_pin">PIN</label>
+          <div class="inputbox">
+            <i class="fa fa-unlock"></i>
+            {{ loginform.password }}
+          </div>
+          <b><span class="formerror"></span></b>
+        </div>
+      </div>
+
+      <div class="checkbox">
+        <div class="innercheckbox">
+          {{ loginform.remember_me }}
+        </div>
+        <h5>&nbsp; Remember me</h5>
+        <div class="forget"><a href=""> Forgot Password</a></div>
+      </div>
+      <input class="submit_btn" name='submit' type="submit" value="Login" />
+  </div>
+  </form>
+  <!-- end login form -->
+
+</section>
+
+{% endblock %}
+
+
+
+{% block js %}
+<script src="{% static 'js/loginRegistration.js' %}"></script>
+<script src="{% static 'js/validation.js' %}"></script>
+{% endblock %}

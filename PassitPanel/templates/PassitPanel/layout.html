@@ -1,0 +1,179 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>passRid {% block title %} {%endblock %} </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+        rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/5ee2cb3094.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet" />
+
+    {% block css %}{% endblock %}
+
+</head>
+
+<body>
+    <section class="">
+        <nav>
+            <div class="logo">
+                <a href="{% url 'homePage' %}"> <img src="{{ MEDIA_URL }}photo/logo.png" alt="" /></a>
+            </div>
+            <input class="menu-btn" type="checkbox" style="display: none" id="menu-btn" />
+
+            <ul class="navbar">
+                {% url 'homePage' as home_url %}
+                <li><a href="{% url 'homePage' %}">Home</a></li>
+                <li><a href="{% url 'homePage' %}" id="aboutid">About Us</a></li>
+                <li><a href="{% url 'homePage' %}" id="howit">How It Works</a></li>
+
+                <li><a href="{% url 'homePage' %}" id="contactid">Contact Us</a></li>
+                {% url 'homePage' as home_url %}
+                {% if request.get_full_path == home_url %}
+                <li>
+                    <a href="{% url 'userLoginRegister' %}" type="button" class="navbarlogin">Log In</a>
+                </li>
+                {% endif %}
+            </ul>
+
+            {% url 'homePage' as home_url %}
+            {% if request.path == home_url %}
+            <div class="loginanddot">
+                <div class="login-panel">
+                    <div class="navbtn">
+                        <a href="{% url 'userLoginRegister' %}" type="button" class="simbtn">Log In</a>
+                        <a href="{% url 'userLoginRegister' %}" type="button" class="colorbtn">Get Started</a>
+                    </div>
+                </div>
+                <label class="menu-icon" for="menu-btn">
+                    <span class="nav-icon"></span>
+                </label>
+            </div>
+            {% endif %}
+
+            {% url 'userLoginRegister' as login_url %}
+            {% if request.path == login_url %}
+            <div class="navbtn">
+                <a href="{% url 'websiteLoginRegister' %}" type="button" id="colorbtn1">Website Registration</a>
+                <a href="{% url 'websiteLoginRegister' %}" type="button" id="colorbtn2">Website Login</a>
+            </div>
+            {% endif %}
+
+            {% url 'websiteLoginRegister' as weblogin_url %}
+            {% if request.path == weblogin_url %}
+            <div class="navbtn">
+                <a href="{% url 'userLoginRegister' %}" type="button" id="colorbtn1">User Registration</a>
+                <a href="{% url 'userLoginRegister' %}" type="button" id="colorbtn2">User Login</a>
+            </div>
+            {% endif %}
+
+
+
+        </nav>
+    </section>
+
+    {% block body %}
+    {% endblock %}
+
+    <footer class="footer" data-aos="fade-up">
+        <div class="innerfooter">
+            <div class="passitbox">
+                <h1>Pass It</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                    possimus officiis repellat nisi voluptates? Consequuntur.
+                </p>
+                <div class="social">
+                    <h2>FOLLOW US</h2>
+                    <div class="sociallink">
+                        <ul>
+                            <li class="social-item">
+                                <a href=""><i class="fab fa-facebook"></i></a>
+                            </li>
+                            <li class="social-item">
+                                <a href=""><i class="fab fa-twitter-square"></i></a>
+                            </li>
+                            <li class="social-item">
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="innerfooter1">
+                <div class="innerfooterbox">
+                    <div class="productbox">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="{% url 'userLoginRegister' %}"> Log in</a></li>
+                            <li><a href="{% url 'userLoginRegister' %}"> Register </a></li>
+                            <li><a href=""> Pricing </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="productbox">
+                        <h4>About us</h4>
+                        <ul>
+                            <li><a href="{% url 'AboutUsDetail' %}">About Pass It </a></li>
+                            <li><a href="{% url 'OurVision' %}"> Our Vision </a></li>
+                            <li><a href="{% url 'teams' %}"> Our Team </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="innerfooterbox">
+                    <div class="productbox">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href=""> Blogs</a></li>
+                            <li><a href=""> Events </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="productbox">
+                        <h4>Help & Support</h4>
+                        <ul>
+                            <li><a href="{% url 'contactUs' %}"> Contact Customer Service</a></li>
+                            <li><a href=""> Report an error </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="innerfooter2">
+            <div class="tandc">
+                <a href="">Terms of Service</a>
+                <p>|</p>
+                <a href="">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="outer">
+            Copyright &copy; PassRid Pvt.Ltd  &nbsp;&nbsp;  All Right Recived
+        </div>
+        
+    </footer>
+    
+
+    {% block js %} {% endblock %}
+</body>

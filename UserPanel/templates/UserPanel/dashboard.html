@@ -1,0 +1,350 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>passRid - Dashboard</title>
+    <!-- Boxicons CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/5ee2cb3094.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <div class="userbox">
+        <div class="logo-details">
+          <div class="logo_name">Pass it</div>
+          <i class="bx bx-menu" id="btn"></i>
+        </div>
+        <div class="user_img">
+          <div class="innerimg" style="height: 40px">
+            <img style="height: 60px" src="{% static 'photo/user.png' %}" />
+          </div>
+        </div>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="{% url 'dashboard' %}">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="{% url 'analytics' %}">
+            <i class="bx bx-pie-chart-alt-2"></i>
+            <span class="links_name">Analytics</span>
+          </a>
+          <span class="tooltip">Analytics</span>
+        </li>
+        <li>
+          <a href="{% url 'userAccountDetails' %}">
+            <i class="bx bx-user"></i>
+            <span class="links_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="bx bx-folder"></i>
+            <span class="links_name">Report</span>
+          </a>
+          <span class="tooltip">Files</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="links_name">Setting</span>
+          </a>
+          <span class="tooltip">Setting</span>
+        </li>
+        <li class="profile">
+          <a href="{% url 'userLogout' %}">
+            <i class="bx bx-log-out" id="log_out"></i>
+            <p>Logout</p>
+          </a>
+        </li>
+      </ul>
+      <div class="contactus-box">
+        <p>
+          Have any problems with manage your dashboard? Try to contact the
+          customer support
+        </p>
+        <button>Contact Us</button>
+      </div>
+    </div>
+    <section class="home-section">
+      <div class="dashboard-text">
+        <div class="headingdashleft">
+          <h1>Hello {{ user.name }}</h1>
+          <h4>Welcome Back!</h4>
+        </div>
+        <div class="headingdashright">
+          <div class="bellbox">
+            <i class="far fa-bell"></i>
+          </div>
+        </div>
+      </div>
+      <div class="deshboardmiddle">
+        <div class="middledesh">
+          <div class="recentheading"><h1>Recent Activity</h1></div>
+          <div class="middledeshboard">
+            <div class="webloghis">
+              <div class="login-heading-white"><h2>Web Login</h2></div>
+              {% for i in range %}
+              <div class="log-box">
+                <div class="inner-log-box">
+                  <div class="upperlog-box">
+                    <div class="imgandlog">
+                      <img src="{% static 'photo/netflex.png' %}" />
+                      <div class="email-device">
+                        <p>Email - prathampathidar@gmail.com</p>
+                        <p>Device - TV</p>
+                      </div>
+                    </div>
+                    <div class="status-log">
+                      <p>Status</p>
+                      <div class="greencircle"></div>
+                    </div>
+                  </div>
+                  <div class="lowerlog-box">
+                    <div class="date-timeshow">
+                      <p>Time-00:24</p>
+                      <p>Date - 14/03/2021</p>
+                    </div>
+                    <div>
+                      <p>Is that you?</p>
+                      <div style="display: flex; justify-content: space-around">
+                        <div>
+                          <svg
+                            width="29"
+                            height="29"
+                            viewBox="0 0 29 29"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.8" filter="url(#filter0_bd)">
+                              <circle
+                                cx="14.5"
+                                cy="13.5"
+                                r="12.5"
+                                fill="url(#paint0_linear)"
+                                shape-rendering="crispEdges"
+                              />
+                            </g>
+                            <path
+                              d="M9.5 13.0833L13.25 16.8333L19.5 9.33334"
+                              stroke="#5CDC00"
+                              stroke-width="3"
+                              stroke-linecap="round"
+                            />
+                            <defs>
+                              <filter
+                                id="filter0_bd"
+                                x="-98"
+                                y="-99"
+                                width="225"
+                                height="225"
+                                filterUnits="userSpaceOnUse"
+                                color-interpolation-filters="sRGB"
+                              >
+                                <feFlood
+                                  flood-opacity="0"
+                                  result="BackgroundImageFix"
+                                />
+                                <feGaussianBlur
+                                  in="BackgroundImage"
+                                  stdDeviation="50"
+                                />
+                                <feComposite
+                                  in2="SourceAlpha"
+                                  operator="in"
+                                  result="effect1_backgroundBlur"
+                                />
+                                <feColorMatrix
+                                  in="SourceAlpha"
+                                  type="matrix"
+                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                  result="hardAlpha"
+                                />
+                                <feOffset dy="1" />
+                                <feGaussianBlur stdDeviation="1" />
+                                <feComposite in2="hardAlpha" operator="out" />
+                                <feColorMatrix
+                                  type="matrix"
+                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                                />
+                                <feBlend
+                                  mode="normal"
+                                  in2="effect1_backgroundBlur"
+                                  result="effect2_dropShadow"
+                                />
+                                <feBlend
+                                  mode="normal"
+                                  in="SourceGraphic"
+                                  in2="effect2_dropShadow"
+                                  result="shape"
+                                />
+                              </filter>
+                              <linearGradient
+                                id="paint0_linear"
+                                x1="26.5279"
+                                y1="25.6429"
+                                x2="9.28961"
+                                y2="-2.80255"
+                                gradientUnits="userSpaceOnUse"
+                              >
+                                <stop stop-color="white" stop-opacity="0.6" />
+                                <stop
+                                  offset="1"
+                                  stop-color="white"
+                                  stop-opacity="0.8"
+                                />
+                                <stop
+                                  offset="1"
+                                  stop-color="white"
+                                  stop-opacity="0.4"
+                                />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                        <div>
+                          <svg
+                            width="29"
+                            height="29"
+                            viewBox="0 0 29 29"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.8" filter="url(#filter0_bd)">
+                              <circle
+                                cx="14.5"
+                                cy="13.5"
+                                r="12.5"
+                                fill="url(#paint0_linear)"
+                                shape-rendering="crispEdges"
+                              />
+                            </g>
+                            <path
+                              d="M10.334 17.6667L18.6673 9.33335"
+                              stroke="#D12828"
+                              stroke-width="3"
+                              stroke-linecap="round"
+                            />
+                            <path
+                              d="M18.667 17.6667L10.3337 9.33335"
+                              stroke="#D12828"
+                              stroke-width="3"
+                              stroke-linecap="round"
+                            />
+                            <defs>
+                              <filter
+                                id="filter0_bd"
+                                x="-98"
+                                y="-99"
+                                width="225"
+                                height="225"
+                                filterUnits="userSpaceOnUse"
+                                color-interpolation-filters="sRGB"
+                              >
+                                <feFlood
+                                  flood-opacity="0"
+                                  result="BackgroundImageFix"
+                                />
+                                <feGaussianBlur
+                                  in="BackgroundImage"
+                                  stdDeviation="50"
+                                />
+                                <feComposite
+                                  in2="SourceAlpha"
+                                  operator="in"
+                                  result="effect1_backgroundBlur"
+                                />
+                                <feColorMatrix
+                                  in="SourceAlpha"
+                                  type="matrix"
+                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                  result="hardAlpha"
+                                />
+                                <feOffset dy="1" />
+                                <feGaussianBlur stdDeviation="1" />
+                                <feComposite in2="hardAlpha" operator="out" />
+                                <feColorMatrix
+                                  type="matrix"
+                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                                />
+                                <feBlend
+                                  mode="normal"
+                                  in2="effect1_backgroundBlur"
+                                  result="effect2_dropShadow"
+                                />
+                                <feBlend
+                                  mode="normal"
+                                  in="SourceGraphic"
+                                  in2="effect2_dropShadow"
+                                  result="shape"
+                                />
+                              </filter>
+                              <linearGradient
+                                id="paint0_linear"
+                                x1="26.5279"
+                                y1="25.6429"
+                                x2="9.28961"
+                                y2="-2.80255"
+                                gradientUnits="userSpaceOnUse"
+                              >
+                                <stop stop-color="white" stop-opacity="0.6" />
+                                <stop
+                                  offset="1"
+                                  stop-color="white"
+                                  stop-opacity="0.8"
+                                />
+                                <stop
+                                  offset="1"
+                                  stop-color="white"
+                                  stop-opacity="0.4"
+                                />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="sidedesh">
+          <div class="innersidedesh">
+            <div class="innerdesh-cont">
+              <p>No. of website login till now - 250</p>
+              <p>No. of app login till now - 40</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="{% static 'js/dashboard.js' %}"></script>
+  </body>
+</html>

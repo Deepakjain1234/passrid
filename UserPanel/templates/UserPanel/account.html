@@ -1,0 +1,12 @@
+<html>
+  <title>User Account Details</title>
+
+  <body>
+    <h1>Welcome, {{ request.user.name }}!</h1>
+    <ul>
+      <li>Email: {{ request.user.email }}</li>
+    </ul>
+
+    <a href="{% url 'userLogout' %}">Log Out</a>
+  </body>
+</html>
